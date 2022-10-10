@@ -10,3 +10,6 @@ deleteTarea
 
 
 }=require('../controllers/controladorTarea')
+
+
+module.exports=router

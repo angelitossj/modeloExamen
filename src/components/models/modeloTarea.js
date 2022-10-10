@@ -21,13 +21,13 @@ const TareSchema = new Schema({
         min: 15,
         require
     },
-    active:{
-        type:Boolean,
-        default:true
-        
-        }
+    active: {
+        type: Boolean,
+        default: true
+
+    }
 
 })
 
 
-module.exports=model('tarea',TareSchema)
+module.exports = model('tarea', TareSchema)
