@@ -1,6 +1,6 @@
 const {Schema,model}=require('mongoose')
 
-const AlumnosSchema = new Schema({
+const UsuarioSchema = new Schema({
 
 nombre:{
 type:String,
@@ -46,4 +46,4 @@ default:true
 timestamps:true})
 
 
-module.exports =model("Alumnos",AlumnosSchema) 
+module.exports =model("usuario",UsuarioSchema) 

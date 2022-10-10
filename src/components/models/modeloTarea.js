@@ -20,7 +20,12 @@ const TareSchema = new Schema({
         type: String,
         min: 15,
         require
-    }
+    },
+    active:{
+        type:Boolean,
+        default:true
+        
+        }
 
 })
 

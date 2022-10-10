@@ -1,11 +1,11 @@
-const Alumno = require("../models/modeloAlumnos")
+const Usuario = require("../models/modeloUsuarios")
 
 
-const CtrlAlumno={}
+const CtrolUsuario={}
 
 
-CtrlAlumno.getAlumnos=async(req,res)=>{
-    const estudiante=Alumno.find() 
+CtrolUsuario.getUsuario=async(req,res)=>{
+    const user=Usuario.find() 
 
 return res.json({
     message:"Usuario encontrado"
@@ -15,11 +15,11 @@ return res.json({
 
 
 }
-CtrlAlumno.postAlumnos=async(req,res)=>{
+CtrolUsuario.postUsuario=async(req,res)=>{
     const {nombre,apellido,pais,password,email}=req.body
 
-    const newAlumno = new Alumno({nombre,pais,apellido,email,password})
-const alumno=await newAlumno.save()
+    const newUsuario = new Usuario({nombre,pais,apellido,email,password})
+const Usuario=await newUsuario.save()
     return res.json({
         message:"Usuario encontrado"
         
@@ -28,7 +28,7 @@ const alumno=await newAlumno.save()
     
     
     }
-    CtrlAlumno.putAlumnos=async(req,res)=>{
+    CtrolUsuario.putUsuario=async(req,res)=>{
 
         return res.json({
             message:"Usuario encontrado"
@@ -38,7 +38,7 @@ const alumno=await newAlumno.save()
         
         
         }
-        CtrlAlumno.deleteAlumnos=async(req,res)=>{
+        CtrolUsuario.deleteUsuario=async(req,res)=>{
 
             return res.json({
                 message:"Usuario encontrado"
@@ -59,4 +59,4 @@ const alumno=await newAlumno.save()
 
 
 
-module.exports= CtrlAlumno
+module.exports= CtrolUsuario
