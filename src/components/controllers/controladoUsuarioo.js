@@ -1,6 +1,6 @@
 const Usuario = require("../models/modeloUsuarios")
 const bcrypt = require('bcrypt')
-
+const Model=require("../models/modeloTarea")
 
 const CtrlUsuario = {}
 
