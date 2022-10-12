@@ -28,13 +28,14 @@ const UsuarioSchema = new Schema({
         max: 50
 
     },
-    active: {
+    isActive: {
         type: Boolean,
         default: true
 
     },
     role: {
-        type: String
+        type: String,
+        default:'default_user'
     }
 
 

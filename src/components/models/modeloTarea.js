@@ -3,7 +3,7 @@ const {
     model
 } = require('mongoose')
 
-
+require('../models/modeloUsuarios')
 const TareSchema = new Schema({
 
     titulo: {
@@ -21,10 +21,20 @@ const TareSchema = new Schema({
         min: 15,
         require
     },
-    active: {
+    isActive: {
         type: Boolean,
         default: true
 
+    },
+    role: {
+        type: String,
+        default:'default_user'
+    },
+
+    idUser: {
+        type: Schema.ObjectId,
+        ref: 'usuario',
+        required: true
     }
 
 })

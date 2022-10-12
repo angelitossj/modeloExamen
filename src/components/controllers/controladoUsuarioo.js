@@ -1,14 +1,15 @@
 const Usuario = require("../models/modeloUsuarios")
 const bcrypt = require('bcrypt')
-const jwt=require("jsonwebtoken")
+
 
 const CtrlUsuario = {}
 
 
 CtrlUsuario.getUsuario = async (req, res) => {
     try {
+        
         const user = await Usuario.find(({
-            active: true
+            isActive: true
         }))
     
         return res.json({
@@ -33,7 +34,7 @@ CtrlUsuario.getUsuarioId = async (req, res) => {
             $and: [{
                 _id: idUser
             }, {
-                active: true
+                isActive: true
             }]
         })
         if (user) {
@@ -73,19 +74,17 @@ CtrlUsuario.postUsuario = async (req, res) => {
         })
 
         const user = await newUsuario.save()
-const token =jwt.sign({id:user.id},process.env.SECRET,{
-    expiresIn:"5h"
-})
+
         return res.status(201).json({
             message: "Usuario guardado correctamente",
-            token
+            user
 
         })
 
     } catch (error) {
         return res.status(401).json({
             message: "El usuario no se ha podido crear",
-            error
+            error:error.message
         })
     }
 
