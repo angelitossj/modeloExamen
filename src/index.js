@@ -27,6 +27,7 @@ app.use(require("./components/routes/authRutas"))
 
 
 
+
 // Iniciar servidor
 app.listen(port, console.log(`
     Servidor iniciado en: http://localhost:${port}

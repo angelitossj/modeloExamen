@@ -39,14 +39,6 @@ token
 
 }
 
-CtrlAuth.post=async(req,res)=>{
-    try {
-        
-    } catch (error) {
-        
-    }
 
-
-}
 
 module.exports=CtrlAuth
