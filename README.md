@@ -1,21 +1,94 @@
 # modeloExamen
 
-#bed and breakfastUso de Nodejs y Express para servidor
+  
+
+Uso de Nodejs y Express para Servidor
+
+
+
+Para ejecutar se debe tener instalado Node.js y npm.
+
+Para Instalar las dependencias:
+![](https://www.google.com/url?sa=i&url=https://mayankpatel99.medium.com/node-js-express-a-beginners-guide-edf205316ae9&psig=AOvVaw0R_mIM6gvjouI8zdGFNrjr&ust=1665842844974000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCMDinKry3_oCFQAAAAAdAAAAABAc)
+npm i
+
+Para ejecutar el proyecto en modo Desarrollo, ejecutar el siguiente comando:
+
+npm run nodemon
+
+Para el proyecto en modo Producción, ejecutar el siguiente comando:
+
+npm start
+
+![enter image description here](https://www.google.com/url?sa=i&url=https://www.toptal.com/nodejs/secure-rest-api-in-nodejs&psig=AOvVaw0R_mIM6gvjouI8zdGFNrjr&ust=1665842844974000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCMDinKry3_oCFQAAAAAdAAAAABAX)
+
+
+
 
 
   
+  
 
-Para ejecutar debe tener instalado Node.js y npm.
+Pasos:
 
+  
+  
 
-![enter image description here]( https://camo.githubusercontent.com/0831579ca65c4ea04fef03561371669f02c7d55855df5c4356aa113e8e7708f7/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f70726163746963616c6465762f696d6167652f66657463682f732d2d4b6b536373746e4a2d2d2f635f696d616767615f7363616c652c665f6175746f2c666c5f70726f67726573736976652c685f3432302c715f6175746f2c775f313030302f68747470733a2f2f6465762d746f2d75706c6f6164732e73332e616d617a6f6e6177732e636f6d2f75706c6f6164732f61727469636c65732f7a6f6a757937396c6f33666e33716474376736702e706e67 ) 
+comenzar es registrarte como usuario:
 
-Para Instalar las dependencias:
-npm i
+HTTP: POST :http://localhost:3000/usuario
 
+=> requiere del siguiente body:
 
+{
 
+"usuario":"angelitossj",
 
-Para ejecutar el proyecto en modo Desarrollo, ejecute el siguiente comando:
+"password":"xxxxxxxxx",
 
-npm run nodemon
+"email":"Email Válido(xxxx@xxxx.com)"
+
+}
+
+  
+  
+
+iniciar sesión para acceder a las funciones:
+
+HTTP: POST: http://localhost:3000/login
+
+=> requiere del siguiente body:
+
+{
+
+"usuario":"angelitossj",
+
+"password":"xxxxxx"
+
+}
+
+  
+
+Una vez recibido el Token,
+
+cópielo y uselo como header Authorization y así acceder a las funciones:
+
+  
+
+HTTP: GET: http://localhost:3000/usuario
+
+Sirve para ver la información de tu cuenta.
+
+HTTP: DELETE: http://localhost:3000/usuario
+
+En caso de que quieras eliminar la cuenta.
+
+Funciones de Tareas con el Token:
+
+HTTP: GET: http://localhost:3000/tarea
+
+Mostraría todas las tareas existentes en la Base de Datos:
+
+HTTP: GET http://localhost:3000/tarea/:idTarea
+
+Para tener en cuenta; Para obtener el :idTarea preferiblemente que  un realice un GET de las tareas ( /tarea/usuario) y copie el "_id" de la tarea que desea modificar:
