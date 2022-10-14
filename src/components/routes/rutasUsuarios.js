@@ -5,7 +5,8 @@ getUsuario,
 postUsuario,
 putUsuario,
 deleteUsuario,
-getUsuarioId
+getUsuarioId,
+deleteUsuarioTarea
 
 
 
@@ -23,7 +24,7 @@ router.get("/usuario",[validarJWT],getUsuario)
 router.get("/usuario/:idUsuario",getUsuarioId)
 router.post("/usuario",[validarJWT],postUsuario)
 router.put("/usuario/:idUsuario",[validarJWT],putUsuario)
-
+router.delete("/usuario",[],deleteUsuarioTarea)
 router.delete("/usuario",[],deleteUsuario)
 
 

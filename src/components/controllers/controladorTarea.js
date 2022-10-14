@@ -121,8 +121,8 @@ if (!tareas || !tareas.isActive){
 res.status(404).json({message:"No existe la tarea"})
 
 }
-    const userIdString=idUser.toString()
-const tareaIdString=tareas.idUser.toString()
+    const userIdString=idUser.toString()//recibo el ID que me pasa el validateJWT y lo convierto a STRING
+const tareaIdString=tareas.idUser.toString()//recibo la propiedad idUser de la Task y lo convierto a STRING para luego comparar
 if (!((userIdString === tareaIdString )||req.usuario.role==='admin_user'))
 {
     res.status(500).json({

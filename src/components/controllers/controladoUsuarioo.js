@@ -145,7 +145,26 @@ CtrlUsuario.deleteUsuario = async (req, res) => {
 
 
 
-
+CtrlUser.deleteUsuarioTarea = async (req, res) => {
+    try {
+        const idUser = req.params.idUser;
+        const user = await Usuario.findOne({$and:[{_id: idUser},{isActive: true}]});
+        if(!user){
+            return res.json({
+                message: `El usuario ya no existe`
+            })
+        }
+       
+        await Model.updateMany({$and:[{isActive: true},{idUser}]}, {isActive: false})
+     
+        await user.updateOne({isActive: false})
+        return res.json({
+            message: `Usuario eliminado correctamente.`,
+        })
+    } catch (error) {
+        return res.json({message:`Error interno del servidor: ${error.message}`})
+    }
+}
 
 
 
