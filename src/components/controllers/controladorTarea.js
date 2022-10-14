@@ -23,9 +23,9 @@ CtrlTarea.getTarea = async (req, res) => {
 CtrlTarea.getTareaIdUser = async (req, res) => {
     try {
         const idUser = req.user._id
-        const tasks = await Tareas.find({
+        const tasks = await Tareas.findOne({
                 idUser
-            })
+            },{isActive:true})
             .populate('idUser', ['usuario', 'password'])
 
         if (!tasks.length) {

@@ -26,6 +26,39 @@ CtrlUsuario.getUsuario = async (req, res) => {
 
 
 }
+CtrlUsuario.getUsuario = async (req, res) => {
+    try {
+        const idUsuario=req.user._id
+        console.log(idUsuario)
+        const user = await Usuario.find(({
+            isActive: true
+        }))
+        if (!user.id === idUsuario){
+            res.json({
+                message:"no se ha encontrado el usuario con ese token"
+            })
+        }
+       
+        return res.json({
+            message:"usuario encontrado con exito",
+            user
+        })
+    
+        return res.json({
+            message: "Usuario encontrado",
+            user
+    
+        })
+    
+    } catch (error) {
+        return res.json({
+            message:"error",
+            error:error.message
+        })
+    }
+
+
+}
 
 CtrlUsuario.getUsuarioId = async (req, res) => {
     try {

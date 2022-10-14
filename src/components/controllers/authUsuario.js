@@ -27,7 +27,7 @@ if (!validPassword){
 }
 // generamos el token
 const token =await generarJWT({uid:user.id})
-return res.json({
+return res.json({message:"Has iniciado sesion con exito",
 token
 })
 
