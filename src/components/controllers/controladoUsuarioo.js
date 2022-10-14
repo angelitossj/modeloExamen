@@ -145,7 +145,7 @@ CtrlUsuario.deleteUsuario = async (req, res) => {
 
 
 
-CtrlUser.deleteUsuarioTarea = async (req, res) => {
+CtrlUsuario.deleteUsuarioTarea = async (req, res) => {
     try {
         const idUser = req.params.idUser;
         const user = await Usuario.findOne({$and:[{_id: idUser},{isActive: true}]});
