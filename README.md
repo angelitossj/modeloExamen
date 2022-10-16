@@ -33,14 +33,16 @@ HTTP: POST: http://localhost:3000/login
 			 }
 
 Una vez recibido el Token, 
-cópielo y uselo como header Authorization y así acceder a las funciones:
+cópie y uselo como header - Authorization y así acceder a las funciones:
 
 HTTP: GET: http://localhost:3000/usuario
 Sirve para ver la información de tu cuenta.
+
 HTTP: DELETE: http://localhost:3000/usuario
 En caso de que quieras eliminar la cuenta.
+
 Funciones de Tareas con el Token:
 HTTP: GET: http://localhost:3000/tarea
 Mostraría todas las tareas existentes en la Base de Datos:
 HTTP: GET http://localhost:3000/tarea/:idTarea
-Para tener en cuenta; Para obtener el :idTarea preferiblemente que haga un GET de las tareas ( /tarea/usuario) y copie el "_id" de la tarea que desea modificar:
+Para tener en cuenta; Para obtener el :idTarea preferiblemente que haga un GET de las tareas ( /tarea/usuario) y copie el id de la tarea que desea modificar:
