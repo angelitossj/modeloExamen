@@ -161,5 +161,5 @@ Mostraría todas las tareas existentes en la Base de Datos:
 
 HTTP: GET http://localhost:3000/tarea/:idTarea
 
-Para tener en cuenta; Para obtener el :idTarea preferiblemente que  un realice un GET de las tareas ( /tarea/usuario) y copie el "_id" de la tarea que desea modificar:
+Para tener en cuenta; Para obtener el :idTarea preferiblemente que  un realice un GET de las tareas ( /tarea/usuario) y copie el "id" de la tarea que desea modificar:
 >>>>>>> c51491ec40e9c1ad606257a6714b1e9f70d759fe
