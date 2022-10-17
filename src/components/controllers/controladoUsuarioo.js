@@ -215,6 +215,8 @@ CtrlUsuario.deleteUsuarioTarea = async (req, res) => {
         const user = await Usuario.findOne({
             $and: [{
                 _id: idUser,
+                
+            }, {
                 isActive: true
             }]
         });
