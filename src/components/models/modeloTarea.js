@@ -32,9 +32,9 @@ const TareSchema = new Schema({
     },
 
     idUser: {
-        type: Schema.ObjectId,
-        ref: 'usuario',
-        required: true
+        type:Schema.ObjectId,
+        ref:'usuario',
+        required:true
     }
 
 })

@@ -23,10 +23,16 @@ CtrlTarea.getTarea = async (req, res) => {
 CtrlTarea.getTareaIdUser = async (req, res) => {
     try {
         const idUser = req.user._id
-        const tasks = await Tareas.findOne({
-                idUser
-            },{isActive:true})
-            .populate('idUser', ['usuario', 'password'])
+        console.log(idUser)
+        if (!idUser){
+            return res.json({
+                message:"no viene el id del usuario"
+            })
+        }
+        const tasks = await Tareas.find({
+                idUser,isActive:true
+            })
+            .populate('idUser', ['usuario',"password"])
 
         if (!tasks.length) {
             return res.status(404).json({
@@ -101,6 +107,14 @@ if (!((userIdString === tareaIdString )||req.user.role==='admin_user'))
 {
     return res.status(403).json({message:"No tiene permiso para editar la tarea"})
 }
+const complete = Tareas.findById(idUser,{estado})
+
+if(complete="completado"){
+    return res.json({
+        message:"la tarea ya ha sido completada"
+    })
+}
+
 await tarea.updateOne({titulo,descripcion,estado})
 return res.status(201).json({message:"la tarea fue modificada con exito"})
  

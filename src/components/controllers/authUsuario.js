@@ -17,6 +17,12 @@ try {
             message:"Error al autenticarse, Usuario no encontrado"
         })
     }
+    if (!user.isActive){
+        return res.status(400).json({
+            ok:false,
+            message:"Error al autenticarse, Usuario en estado falso"
+        })
+    }
 // verificar la contraseña
 const validPassword=bcrypt.compareSync(password,user.password)
 
