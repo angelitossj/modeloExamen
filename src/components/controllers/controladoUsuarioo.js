@@ -112,10 +112,18 @@ CtrlUsuario.postUsuario = async (req, res) => {
             password: newPassword 
         })
         
-        const User = await Usuario.findOne({email:email})
-        if (User){
+        const VerificaEmail = await Usuario.findOne({email:email})
+        if (VerificaEmail){
             return res.json({
                 message:"el usuario con este correo ya existe",
+
+                
+            })
+        }
+        const VerificaUser = await Usuario.findOne({usuario:usuario})
+        if (VerificaUser){
+            return res.json({
+                message:"el nombre de usuario ya existe",
 
                 
             })

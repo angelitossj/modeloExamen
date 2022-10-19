@@ -21,7 +21,7 @@ const validarCampos=require("../middlewares/validaciones")
 
 // router.get("/usuario",getUsuario)
 router.post("/usuario",[validarCampos],postUsuario)
-router.get("/usuario",[validarJWT],getUsuario)
+router.get("/usuario",[validarJWT,esAdmin],getUsuario)
 router.get("/usuario/:idUsuario",getUsuarioId)
 router.post("/usuario",[validarJWT,validarCampos],postUsuario)
 router.put("/usuario/:idUsuario",[validarJWT,validarCampos],putUsuario)

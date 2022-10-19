@@ -13,7 +13,7 @@ deleteTarea
 
 }=require('../controllers/controladorTarea')
 
-router.get("/tarea",getTarea)
+router.get("/tarea",[validarJWT],getTarea)
 router.get("/tarea/usuario",[validarJWT],getTareaIdUser)
 router.post("/tarea",[validarJWT],postTarea)
 router.put("/tarea/:idTarea",[validarJWT],putTarea)

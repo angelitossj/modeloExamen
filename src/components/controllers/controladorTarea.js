@@ -4,18 +4,33 @@ const CtrlTarea = {}
 
 CtrlTarea.getTarea = async (req, res) => {
     try {
+        const idUser = req.user._id
+        console.log(idUser)
+        if (!idUser){
+            return res.json({
+                message:"no viene el id del usuario"
+            })
+        }
         const tasks = await Tareas.find({
-            active: true
-        })
+                idUser,isActive:true
+            })
+            .populate('idUser', ['usuario',"password"])
+
+        if (!tasks.length) {
+            return res.status(404).json({
+                message: "no se encontraron tareas con ese usuario"
+            })
+        }
 
         return res.json({
-            message: "Tarea encontrado con exito",
             tasks
         })
 
-
     } catch (error) {
-
+        res.status(500).json({
+            message: "No se pudo obtener las tareas",
+            errorBody: error.message
+        })
     }
 
 
