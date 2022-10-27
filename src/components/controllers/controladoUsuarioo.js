@@ -30,7 +30,7 @@ CtrlUsuario.getUsuario = async (req, res) => {
 
 
 }
-CtrlUsuario.getUsuario = async (req, res) => {
+CtrlUsuario.getUsuarios = async (req, res) => {
     try {
         const idUsuario = req.user._id
         console.log(idUsuario)
